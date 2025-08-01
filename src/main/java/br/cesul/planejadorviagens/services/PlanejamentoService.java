@@ -2,7 +2,7 @@ package br.cesul.planejadorviagens.services;
 
 import br.cesul.planejadorviagens.model.Viagem;
 import br.cesul.planejadorviagens.repository.ViagemRepository;
-
+import java.util.List;
 import java.time.LocalDate;
 
 public class PlanejamentoService {
@@ -29,5 +29,11 @@ public class PlanejamentoService {
         repo.save(new Viagem(custo, destino, ini, fim, null));
     }
 
+    public List<Viagem> listar(){
+        return repo.listarTodas();
+    }
 
+    public double totalGasto(){
+        return repo.somar();
+    }
 }
