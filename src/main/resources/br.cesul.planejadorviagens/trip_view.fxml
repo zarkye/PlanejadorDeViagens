@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cesul.planejadorviagens.TripView">
    <children>
       <BorderPane layoutY="3.0" prefHeight="400.0" prefWidth="600.0">
@@ -33,8 +32,8 @@
                   <VBox fx:id="destinoField" prefHeight="100.0" prefWidth="460.0" spacing="7.0">
                      <children>
                         <TextField fx:id="destinoField" prefHeight="25.0" prefWidth="431.0" promptText="Digite o Destino" />
-                        <TextField fx:id="orcamentoField" onAction="#adicionar" prefHeight="25.0" prefWidth="430.0" promptText="Digite o Orçamento" />
-                        <Button fx:id="btnAdicionar" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Adicionar Viagem" />
+                        <TextField fx:id="orcamentoField" prefHeight="25.0" prefWidth="430.0" promptText="Digite o Orçamento" />
+                        <Button fx:id="btnAdicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="118.0" text="Adicionar Viagem" />
                      </children>
                      <HBox.margin>
                         <Insets left="10.0" />
