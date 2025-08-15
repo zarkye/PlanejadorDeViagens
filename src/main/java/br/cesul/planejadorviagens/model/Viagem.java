@@ -18,10 +18,14 @@ public class Viagem {
     public Viagem(){}
 
     public Viagem(double custo, String destino, LocalDate dataInicio, LocalDate dataFim, ObjectId id){
-        if(custo > 0){
+        if(custo < 0){
             throw new RuntimeException("Valor Nulo");
         }
-
+        this.destino = destino;
+        this.custo = custo;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.id = id;
     }
 
     public double getCusto() {

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cesul.planejadorviagens.TripView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.cesul.planejadorviagens.controller.TripController">
    <children>
       <BorderPane layoutY="3.0" prefHeight="400.0" prefWidth="600.0">
          <top>
@@ -29,11 +29,17 @@
                         </DatePicker>
                      </children>
                   </VBox>
-                  <VBox fx:id="destinoField" prefHeight="100.0" prefWidth="460.0" spacing="7.0">
+                  <VBox prefHeight="100.0" prefWidth="460.0" spacing="7.0">
                      <children>
                         <TextField fx:id="destinoField" prefHeight="25.0" prefWidth="431.0" promptText="Digite o Destino" />
                         <TextField fx:id="orcamentoField" prefHeight="25.0" prefWidth="430.0" promptText="Digite o Orçamento" />
-                        <Button fx:id="btnAdicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="118.0" text="Adicionar Viagem" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="btnAdicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="118.0" text="Adicionar Viagem" />
+                              <Button fx:id="btnRemover" mnemonicParsing="false" onAction="#remover" text="Remover Viagem" />
+                              <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" text="Editar" />
+                           </children>
+                        </HBox>
                      </children>
                      <HBox.margin>
                         <Insets left="10.0" />

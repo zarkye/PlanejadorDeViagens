@@ -2,6 +2,7 @@ package br.cesul.planejadorviagens.services;
 
 import br.cesul.planejadorviagens.model.Viagem;
 import br.cesul.planejadorviagens.repository.ViagemRepository;
+
 import java.util.List;
 import java.time.LocalDate;
 
@@ -27,6 +28,14 @@ public class PlanejamentoService {
             throw new IllegalArgumentException("Conflita com outra Viagem");
         }
         repo.save(new Viagem(custo, destino, ini, fim, null));
+    }
+
+    public void remover(Viagem v){
+        repo.delete(v);
+    }
+
+    public void editar(Viagem oldV, Viagem newV){
+        repo.edit(oldV, newV);
     }
 
     public List<Viagem> listar(){
