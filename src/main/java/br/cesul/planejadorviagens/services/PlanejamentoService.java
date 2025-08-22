@@ -35,6 +35,21 @@ public class PlanejamentoService {
     }
 
     public void editar(Viagem oldV, Viagem newV){
+        if(newV.getDestino().isBlank() || newV.getDestino() == null){
+            throw new IllegalArgumentException("Destino vazio");
+        }
+        if(newV.getDataInicio() == null || newV.getDataFim() == null){
+            throw new IllegalArgumentException("Datas são obrigatórias");
+        }
+        if(newV.getDataInicio().isAfter(newV.getDataFim())){
+            throw new IllegalArgumentException("Inicio posterior ao fim");
+        }
+        if(newV.getCusto() < 0){
+            throw new IllegalArgumentException("Custo inválido");
+        }
+        if(repo.conflita(newV.getDataInicio(), newV.getDataFim())){
+            throw new IllegalArgumentException("Conflita com outra Viagem");
+        }
         repo.edit(oldV, newV);
     }
 

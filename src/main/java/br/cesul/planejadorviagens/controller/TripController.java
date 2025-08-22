@@ -79,15 +79,13 @@ public class TripController {
             mostrarErro(ex.getMessage());
         }
     }
-
+    @FXML
     public void editar(){
         try {
             String texto = orcamentoField.getText().trim();
             if (texto.isEmpty()) {
                 throw new IllegalArgumentException("Digite um valor para o orçamento!");
             }
-
-            //texto = texto.replace(",", "."); // troca vírgula por ponto
             double custo = Double.parseDouble(texto);
             Viagem viagemSelecionada = viagensTable.getSelectionModel().getSelectedItem();
             Viagem viagemNova = new Viagem();
@@ -99,6 +97,7 @@ public class TripController {
             viagensTable.getItems().setAll(service.listar());
             atualizarTotal();
             limparCampos();
+            viagensTable.getSelectionModel().clearSelection();
         }catch (Exception ex){
             mostrarErro(ex.getMessage());
         }

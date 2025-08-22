@@ -31,13 +31,16 @@ public class ViagemRepository {
     }
 
     public void edit(Viagem oldV, Viagem newV){
+
         Bson update = Updates.combine(
                 Updates.set("custo", newV.getCusto()),
                 Updates.set("dataInicio", newV.getDataInicio()),
                 Updates.set("dataFim", newV.getDataFim()),
                 Updates.set("destino", newV.getDestino())
         );
+
         col.updateOne(Filters.eq("_id", oldV.getId()), update);
+//        col.replaceOne(Filters.eq("_id", oldV.getId()), newV);
     }
 
     public List<Viagem> listarTodas(){
